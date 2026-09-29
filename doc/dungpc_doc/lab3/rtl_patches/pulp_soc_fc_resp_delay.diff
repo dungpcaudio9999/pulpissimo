@@ -1,0 +1,137 @@
+diff --git a/Bender.yml b/Bender.yml
+index ed9d41c..3718b7f 100644
+--- a/Bender.yml
++++ b/Bender.yml
+@@ -76,6 +76,7 @@ sources:
+       - rtl/components/pulp_interfaces.sv
+       - rtl/components/tcdm_arbiter_2x1.sv
+       - rtl/components/obi_pulp_adapter.sv
++      - rtl/fc/fc_resp_delay.sv  # Lab 3: response delay for fc_subsystem
+   # components_behav
+   - files:
+       - rtl/components/tb_fs_handler.sv
+diff --git a/rtl/fc/fc_resp_delay.sv b/rtl/fc/fc_resp_delay.sv
+new file mode 100644
+index 0000000..d148459
+--- /dev/null
++++ b/rtl/fc/fc_resp_delay.sv
+@@ -0,0 +1,56 @@
++// Copyright 2026 ETH Zurich and University of Bologna.
++// Copyright and related rights are licensed under the Solderpad Hardware
++// License, Version 0.51 (the "License"); you may not use this file except in
++// compliance with the License. You may obtain a copy of the License at
++// http://solderpad.org/licenses/SHL-0.51.
++// SPDX-License-Identifier: SHL-0.51
++
++// Lab 3 helper: delays a memory response (valid, rdata, error) by N clock
++// cycles. N = 0 is a pure wire, so the default keeps the original behavior.
++// Only valid for a responder without back-pressure that answers in order,
++// which is the case for the PULPissimo L2 (r_valid one cycle after gnt).
++module fc_resp_delay #(
++  parameter int unsigned N = 0
++) (
++  input  logic        clk_i,
++  input  logic        rst_ni,
++  input  logic        valid_i,
++  input  logic [31:0] rdata_i,
++  input  logic        err_i,
++  output logic        valid_o,
++  output logic [31:0] rdata_o,
++  output logic        err_o
++);
++
++  if (N == 0) begin : gen_bypass
++    assign valid_o = valid_i;
++    assign rdata_o = rdata_i;
++    assign err_o   = err_i;
++  end else begin : gen_delay
++    logic [N-1:0]       valid_q;
++    logic [N-1:0][31:0] rdata_q;
++    logic [N-1:0]       err_q;
++
++    always_ff @(posedge clk_i or negedge rst_ni) begin
++      if (!rst_ni) begin
++        valid_q <= '0;
++        rdata_q <= '0;
++        err_q   <= '0;
++      end else begin
++        valid_q[0] <= valid_i;
++        rdata_q[0] <= rdata_i;
++        err_q[0]   <= err_i;
++        for (int i = 1; i < N; i++) begin
++          valid_q[i] <= valid_q[i-1];
++          rdata_q[i] <= rdata_q[i-1];
++          err_q[i]   <= err_q[i-1];
++        end
++      end
++    end
++
++    assign valid_o = valid_q[N-1];
++    assign rdata_o = rdata_q[N-1];
++    assign err_o   = err_q[N-1];
++  end
++
++endmodule
+diff --git a/rtl/fc/fc_subsystem.sv b/rtl/fc/fc_subsystem.sv
+index ef55c75..7a9059a 100644
+--- a/rtl/fc/fc_subsystem.sv
++++ b/rtl/fc/fc_subsystem.sv
+@@ -23,7 +23,11 @@ module fc_subsystem import cv32e40p_apu_core_pkg::*; #(
+   parameter PULP_SECURE         = 1,
+   parameter TB_RISCV            = 0,
+   parameter CORE_ID             = 4'h0,
+-  parameter CLUSTER_ID          = 6'h1F
++  parameter CLUSTER_ID          = 6'h1F,
++  // Lab 3: extra cycles added to the L2 response (r_valid/r_rdata/r_opc) seen
++  // by the core. 0 = original behavior. Set with vopt -G<name>=<N>.
++  parameter int unsigned FC_DATA_EXTRA_LAT  = 0,
++  parameter int unsigned FC_INSTR_EXTRA_LAT = 0
+ )
+ (
+   input  logic                      clk_i,
+@@ -123,9 +127,20 @@ module fc_subsystem import cv32e40p_apu_core_pkg::*; #(
+   assign l2_data_master.wdata  = core_data_wdata;
+   assign l2_data_master.be     = core_data_be;
+   assign core_data_gnt         = l2_data_master.gnt;
+-  assign core_data_rvalid      = l2_data_master.r_valid;
+-  assign core_data_rdata       = l2_data_master.r_rdata;
+-  assign core_data_err         = l2_data_master.r_opc;
++
++  // Lab 3: delay the response by FC_DATA_EXTRA_LAT cycles. L2 always answers
++  // exactly one cycle after gnt and has no back-pressure, so a plain shift
++  // register keeps every response and their order.
++  fc_resp_delay #(.N(FC_DATA_EXTRA_LAT)) i_data_resp_delay (
++    .clk_i,
++    .rst_ni,
++    .valid_i ( l2_data_master.r_valid ),
++    .rdata_i ( l2_data_master.r_rdata ),
++    .err_i   ( l2_data_master.r_opc   ),
++    .valid_o ( core_data_rvalid       ),
++    .rdata_o ( core_data_rdata        ),
++    .err_o   ( core_data_err          )
++  );
+ 
+   // OBI-PULP adapter
+   obi_pulp_adapter i_obi_pulp_adapter_data (
+@@ -143,9 +158,18 @@ module fc_subsystem import cv32e40p_apu_core_pkg::*; #(
+   assign l2_instr_master.wdata = '0;
+   assign l2_instr_master.be    = 4'b1111;
+   assign core_instr_gnt        = l2_instr_master.gnt;
+-  assign core_instr_rvalid     = l2_instr_master.r_valid;
+-  assign core_instr_rdata      = l2_instr_master.r_rdata;
+-  assign core_instr_err        = l2_instr_master.r_opc;
++
++  // Lab 3: same delay on the instruction side (FC_INSTR_EXTRA_LAT cycles)
++  fc_resp_delay #(.N(FC_INSTR_EXTRA_LAT)) i_instr_resp_delay (
++    .clk_i,
++    .rst_ni,
++    .valid_i ( l2_instr_master.r_valid ),
++    .rdata_i ( l2_instr_master.r_rdata ),
++    .err_i   ( l2_instr_master.r_opc   ),
++    .valid_o ( core_instr_rvalid       ),
++    .rdata_o ( core_instr_rdata        ),
++    .err_o   ( core_instr_err          )
++  );
+ 
+   // OBI-PULP adapter
+   obi_pulp_adapter i_obi_pulp_adapter_instr (

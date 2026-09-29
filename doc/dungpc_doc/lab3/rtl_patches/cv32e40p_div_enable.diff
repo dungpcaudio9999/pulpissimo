@@ -1,0 +1,186 @@
+diff --git a/rtl/cv32e40p_alu.sv b/rtl/cv32e40p_alu.sv
+index aa900a7..1cf72da 100644
+--- a/rtl/cv32e40p_alu.sv
++++ b/rtl/cv32e40p_alu.sv
+@@ -27,7 +27,9 @@
+ 
+ module cv32e40p_alu
+   import cv32e40p_pkg::*;
+-(
++#(
++    parameter DIV_ENABLE = 1  // Lab 3: 0 removes cv32e40p_alu_div
++) (
+     input logic               clk,
+     input logic               rst_n,
+     input logic               enable_i,
+@@ -894,27 +896,33 @@ module cv32e40p_alu
+   assign div_valid = enable_i & ((operator_i == ALU_DIV) || (operator_i == ALU_DIVU) ||
+                      (operator_i == ALU_REM) || (operator_i == ALU_REMU));
+ 
+-  // inputs A and B are swapped
+-  cv32e40p_alu_div alu_div_i (
+-      .Clk_CI (clk),
+-      .Rst_RBI(rst_n),
+-
+-      // input IF
+-      .OpA_DI      (operand_b_i),
+-      .OpB_DI      (shift_left_result),
+-      .OpBShift_DI (div_shift),
+-      .OpBIsZero_SI((cnt_result == 0)),
+-
+-      .OpBSign_SI(div_op_a_signed),
+-      .OpCode_SI (operator_i[1:0]),
+-
+-      .Res_DO(result_div),
+-
+-      // Hand-Shake
+-      .InVld_SI (div_valid),
+-      .OutRdy_SI(ex_ready_i),
+-      .OutVld_SO(div_ready)
+-  );
++  if (DIV_ENABLE) begin : gen_div
++    // inputs A and B are swapped
++    cv32e40p_alu_div alu_div_i (
++        .Clk_CI (clk),
++        .Rst_RBI(rst_n),
++
++        // input IF
++        .OpA_DI      (operand_b_i),
++        .OpB_DI      (shift_left_result),
++        .OpBShift_DI (div_shift),
++        .OpBIsZero_SI((cnt_result == 0)),
++
++        .OpBSign_SI(div_op_a_signed),
++        .OpCode_SI (operator_i[1:0]),
++
++        .Res_DO(result_div),
++
++        // Hand-Shake
++        .InVld_SI (div_valid),
++        .OutRdy_SI(ex_ready_i),
++        .OutVld_SO(div_ready)
++    );
++  end else begin : gen_no_div
++    // div/rem are decoded as illegal, so the divider is never started
++    assign result_div = '0;
++    assign div_ready  = 1'b1;
++  end
+ 
+   ////////////////////////////////////////////////////////
+   //   ____                 _ _     __  __              //
+diff --git a/rtl/cv32e40p_core.sv b/rtl/cv32e40p_core.sv
+index 659d865..e734b97 100644
+--- a/rtl/cv32e40p_core.sv
++++ b/rtl/cv32e40p_core.sv
+@@ -35,7 +35,8 @@ module cv32e40p_core
+     parameter PULP_CLUSTER = 0,  // PULP Cluster interface (incl. p.elw)
+     parameter FPU = 0,  // Floating Point Unit (interfaced via APU interface)
+     parameter PULP_ZFINX = 0,  // Float-in-General Purpose registers
+-    parameter NUM_MHPMCOUNTERS = 1
++    parameter NUM_MHPMCOUNTERS = 1,
++    parameter DIV_ENABLE = 1  // Lab 3: 0 removes the divider, div/rem become illegal
+ ) (
+     // Clock and Reset
+     input logic clk_i,
+@@ -509,6 +510,7 @@ module cv32e40p_core
+   //                                             //
+   /////////////////////////////////////////////////
+   cv32e40p_id_stage #(
++      .DIV_ENABLE(DIV_ENABLE),
+       .PULP_XPULP      (PULP_XPULP),
+       .PULP_CLUSTER    (PULP_CLUSTER),
+       .N_HWLP          (N_HWLP),
+@@ -741,6 +743,7 @@ module cv32e40p_core
+   //                                                 //
+   /////////////////////////////////////////////////////
+   cv32e40p_ex_stage #(
++      .DIV_ENABLE(DIV_ENABLE),
+       .FPU             (FPU),
+       .APU_NARGS_CPU   (APU_NARGS_CPU),
+       .APU_WOP_CPU     (APU_WOP_CPU),
+diff --git a/rtl/cv32e40p_decoder.sv b/rtl/cv32e40p_decoder.sv
+index 5e34c8a..826a8ad 100644
+--- a/rtl/cv32e40p_decoder.sv
++++ b/rtl/cv32e40p_decoder.sv
+@@ -34,7 +34,8 @@ module cv32e40p_decoder import cv32e40p_pkg::*; import cv32e40p_apu_core_pkg::*;
+   parameter PULP_SECURE       = 0,
+   parameter USE_PMP           = 0,
+   parameter APU_WOP_CPU       = 6,
+-  parameter DEBUG_TRIGGER_EN  = 1
++  parameter DEBUG_TRIGGER_EN  = 1,
++  parameter DIV_ENABLE        = 1   // Lab 3: 0 = div/divu/rem/remu are illegal
+ )
+ (
+   // singals running to/from controller
+@@ -1158,24 +1159,28 @@ module cv32e40p_decoder import cv32e40p_pkg::*; import cv32e40p_apu_core_pkg::*;
+               alu_op_b_mux_sel_o = OP_B_REGA_OR_FWD;
+               regb_used_o        = 1'b1;
+               alu_operator_o     = ALU_DIV;
++              if (!DIV_ENABLE) illegal_insn_o = 1'b1;
+             end
+             {6'b00_0001, 3'b101}: begin // divu
+               alu_op_a_mux_sel_o = OP_A_REGB_OR_FWD;
+               alu_op_b_mux_sel_o = OP_B_REGA_OR_FWD;
+               regb_used_o        = 1'b1;
+               alu_operator_o     = ALU_DIVU;
++              if (!DIV_ENABLE) illegal_insn_o = 1'b1;
+             end
+             {6'b00_0001, 3'b110}: begin // rem
+               alu_op_a_mux_sel_o = OP_A_REGB_OR_FWD;
+               alu_op_b_mux_sel_o = OP_B_REGA_OR_FWD;
+               regb_used_o        = 1'b1;
+               alu_operator_o     = ALU_REM;
++              if (!DIV_ENABLE) illegal_insn_o = 1'b1;
+             end
+             {6'b00_0001, 3'b111}: begin // remu
+               alu_op_a_mux_sel_o = OP_A_REGB_OR_FWD;
+               alu_op_b_mux_sel_o = OP_B_REGA_OR_FWD;
+               regb_used_o        = 1'b1;
+               alu_operator_o     = ALU_REMU;
++              if (!DIV_ENABLE) illegal_insn_o = 1'b1;
+             end
+ 
+             // PULP specific instructions
+diff --git a/rtl/cv32e40p_ex_stage.sv b/rtl/cv32e40p_ex_stage.sv
+index 6b58a84..d2d2305 100644
+--- a/rtl/cv32e40p_ex_stage.sv
++++ b/rtl/cv32e40p_ex_stage.sv
+@@ -33,6 +33,7 @@ module cv32e40p_ex_stage
+   import cv32e40p_pkg::*;
+   import cv32e40p_apu_core_pkg::*;
+ #(
++    parameter DIV_ENABLE = 1,
+     parameter FPU              = 0,
+     parameter APU_NARGS_CPU    = 3,
+     parameter APU_WOP_CPU      = 6,
+@@ -235,7 +236,9 @@ module cv32e40p_ex_stage
+   //                        //
+   ////////////////////////////
+ 
+-  cv32e40p_alu alu_i (
++  cv32e40p_alu #(
++      .DIV_ENABLE(DIV_ENABLE)
++  ) alu_i (
+       .clk        (clk),
+       .rst_n      (rst_n),
+       .enable_i   (alu_en_i),
+diff --git a/rtl/cv32e40p_id_stage.sv b/rtl/cv32e40p_id_stage.sv
+index 8bd8a4e..00de1db 100644
+--- a/rtl/cv32e40p_id_stage.sv
++++ b/rtl/cv32e40p_id_stage.sv
+@@ -31,6 +31,7 @@ module cv32e40p_id_stage
+   import cv32e40p_pkg::*;
+   import cv32e40p_apu_core_pkg::*;
+ #(
++    parameter DIV_ENABLE = 1,
+     parameter PULP_XPULP        =  1,                     // PULP ISA Extension (including PULP specific CSRs and hardware loop, excluding p.elw)
+     parameter PULP_CLUSTER = 0,
+     parameter N_HWLP = 2,
+@@ -948,6 +949,7 @@ module cv32e40p_id_stage
+   ///////////////////////////////////////////////
+ 
+   cv32e40p_decoder #(
++      .DIV_ENABLE      (DIV_ENABLE),
+       .PULP_XPULP      (PULP_XPULP),
+       .PULP_CLUSTER    (PULP_CLUSTER),
+       .A_EXTENSION     (A_EXTENSION),

@@ -71,10 +71,10 @@ packages:
       Git: https://github.com/pulp-platform/common_verification.git
     dependencies: []
   cv32e40p:
-    revision: 7a49867b2232d97344cde1b8a1e05bcb38634894
+    revision: null
     version: null
     source:
-      Git: https://github.com/pulp-platform/cv32e40p.git
+      Path: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p
     dependencies:
     - common_cells
     - fpnew
@@ -166,10 +166,10 @@ packages:
     - udma_sdio
     - udma_uart
   pulp_soc:
-    revision: bf65372aab4edd404160170e2a4d2c63b27ab5f2
-    version: 5.0.1
+    revision: null
+    version: null
     source:
-      Git: https://github.com/pulp-platform/pulp_soc.git
+      Path: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/pulp_soc
     dependencies:
     - adv_dbg_if
     - apb

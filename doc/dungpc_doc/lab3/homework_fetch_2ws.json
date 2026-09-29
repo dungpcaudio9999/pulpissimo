@@ -1,0 +1,20 @@
+{ "signal": [
+  { "name": "clk",            "wave": "p......" },
+  { "name": "chu kỳ",         "wave": "=======", "data": ["C0", "C1", "C2", "C3", "C4", "C5", "C6"] },
+  { "name": "pha (0x..8178)", "wave": "=====x.", "data": ["yêu cầu", "cấp quyền", "chờ 1", "chờ 2", "dữ liệu"] },
+  {},
+  ["OBI lệnh (lõi → bộ nhớ)",
+    { "name": "instr_req_o",  "wave": "1......", "node": "a......" },
+    { "name": "instr_addr_o", "wave": "=.=..=.", "data": ["0x1C008178", "0x1C00817C", "0x1C008180"] }
+  ],
+  {},
+  ["OBI lệnh (bộ nhớ → lõi)",
+    { "name": "instr_gnt_i",    "wave": "010.10.", "node": ".b...." },
+    { "name": "instr_rvalid_i", "wave": "010.10.", "node": "....d" },
+    { "name": "instr_rdata_i",  "wave": "x=x.=x.", "data": ["0x0713F0E5 (của 0x..8174)", "0x0293E005"] }
+  ]
+],
+  "edge": [ "a~>b yêu cầu được cấp quyền", "b~>d 1 chu kỳ gốc + 2 chu kỳ chờ" ],
+  "head": { "text": "CV32E40P nạp lệnh 0x1C008178 với 2 chu kỳ chờ (FC_INSTR_EXTRA_LAT = 2)", "tick": 0 },
+  "foot": { "text": "Nguồn: sim/vopt_tb_i2.vcd.gz, chu kỳ −3…+3 quanh điểm đánh dấu. C0 = chu kỳ −3" }
+}

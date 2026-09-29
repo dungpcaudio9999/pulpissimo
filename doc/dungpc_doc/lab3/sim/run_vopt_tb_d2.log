@@ -1,0 +1,140 @@
+Setting platform to rtl
+ln -s /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/modelsim.ini /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/modelsim.ini
+ln -s /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/work /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/work
+ln -s /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/boot /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/boot
+ln -s /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/tcl_files /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/tcl_files
+mkdir -p /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/stdout
+mkdir -p /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/fs
+ln -s /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/waves /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/waves
+/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/stim_utils.py --binary=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/lab3_pipe/lab3_pipe --vectors=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/vectors/stim.txt
+Created stimuli generator
+  Added binary: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/lab3_pipe/lab3_pipe
+  Handling section (base: 0x1c000004, size: 0x170)
+  Init section to 0 (base: 0x1c000174, size: 0x830)
+  Handling section (base: 0x1c008000, size: 0x14b0)
+  Generating to file: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/vectors/stim.txt
+/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/plp_mkflash  --flash-boot-binary=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/lab3_pipe/lab3_pipe  --stimuli=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/vectors/qspi_stim.slm --flash-type=spi --qpi
+/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/slm_hyper.py  --input=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/vectors/qspi_stim.slm  --output=/home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build/vectors/hyper_stim.slm
+cd /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sw/build && export VSIM_RUNNER_FLAGS='+ENTRY_POINT=0x1c008080 -permit_unmatched_virtual_intf -gBAUDRATE=115200 +bootmode=jtag' && vsim -64 -c -do 'source /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/tcl_files/config/run_and_exit.tcl' -do 'source /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/tcl_files/run.tcl; run_and_exit;'
+Reading pref.tcl
+
+# 10.7c
+
+# source /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/tcl_files/config/run_and_exit.tcl
+# source /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab3/sim/vsim_path/tcl_files/run.tcl
+# vsim -c -quiet vopt_tb_d2 -t ps "+nowarnTRAN" "+nowarnTSCALE" "+nowarnTFMPC" -suppress 8386 "+UVM_NO_RELNOTES" "+ENTRY_POINT=0x1c008080" -permit_unmatched_virtual_intf "+bootmode=jtag" -gBAUDRATE=115200 
+# Start time: 16:05:19 on Sep 29,2026
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# ** Warning: (vsim-3770) Failed to find user specified function 'jtag_tick' in DPI precompiled library search list "/home/dungpc/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so ".
+#    Time: 0 ps  Iteration: 0  Region: /SimJTAG_sv_unit File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_lib/SimJTAG.sv
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_soc/i_FLL_digital/TQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_soc/i_FLL_digital/JTQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_per/i_FLL_digital/TQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_per/i_FLL_digital/JTQ has no driver.
+# This port will contribute value (U) to the signal network.
+#  run_and_exit
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# ** Warning: (vsim-7) Failed to open readmem file "/../rtl/vip/camera/img/frame0.img" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/vip/camera/cam_vip.sv(88)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pulp/genblk3/i_cam_vip
+# ** Warning: (vsim-7) Failed to open readmem file "/../rtl/vip/camera/img/frame1.img" in read mode.
+# No such file or directory. (errno = ENOENT)    : /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/vip/camera/cam_vip.sv(89)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pulp/genblk3/i_cam_vip
+# [cv32e40p_core]: PULP_XPULP = 1, PULP_CLUSTER =           0, FPU 1, PULP_ZFINX 0, NUM_MHPMCOUNTERS           1
+# [TB  ]       0ns - Asserting hard reset
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/load_store_unit_i/#ALWAYS#418 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_load_store_unit.sv Line: 419
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#785 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 786
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#775 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 776
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#769 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 770
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#760 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 761
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#754 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 755
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#615(immediate_a_mux) File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 616
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#530 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_id_stage.sv Line: 531
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 1  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/load_store_unit_i/#ALWAYS#418 File: /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/working_dir/cv32e40p/rtl/cv32e40p_load_store_unit.sv Line: 419
+# [TB  ]       1ns - Using FLL
+# [TB  ]       1ns - Not using CAM SDVT
+# [TB  ]       1ns - Loading default stimuli
+# [TB  ]       1ns - Entry point is set to 0x1c008080
+# [JTAG]     701ns - Soft Reset Done
+# [JTAG]   33301ns - Bypass Test Passed
+# [JTAG]   43701ns - Tap ID: 50001db3
+# [JTAG]   43701ns - Tap ID Test PASSED
+# [TIF ]   50301ns - Init
+# [TB  ]   50301ns - Enabling clock out via jtag
+# [TB  ]   50301ns - jtag_conf_reg set to xxx
+# [TB  ]   50301ns - Releasing hard reset
+# [CORE_TRACER 992] Output filename is: trace_core_000003e0.log
+# [TB  ]   51901ns - Init PULP TAP
+# [PULP]   66001ns - WRITE32 burst @1c008080 for           4 bytes.
+# [TB  ]   66001ns - Write32 PULP TAP
+# [JTAG]  130501ns - R/W test of L2 succeeded
+# [TB  ]  176201ns - Halting the Core
+# [TB  ]  235001ns - Writing the boot address into dpc
+# [TB  ]  279101ns - Loading L2 via JTAG
+# [JTAG]  279101ns - Loading L2 with pulp tap jtag interface
+# [PULP] 1110801ns - WRITE32 burst @1c000000 for        1024 bytes.
+# [PULP] 1940901ns - WRITE32 burst @1c000400 for        1024 bytes.
+# [PULP] 2291001ns - WRITE32 burst @1c000800 for         424 bytes.
+# [PULP] 3121101ns - WRITE32 burst @1c008000 for        1024 bytes.
+# [PULP] 3951201ns - WRITE32 burst @1c008400 for        1024 bytes.
+# [PULP] 4781301ns - WRITE32 burst @1c008800 for        1024 bytes.
+# [PULP] 5611401ns - WRITE32 burst @1c008c00 for        1024 bytes.
+# [PULP] 6441501ns - WRITE32 burst @1c009000 for        1024 bytes.
+# [PULP] 6593201ns - WRITE32 burst @1c009400 for         176 bytes.
+# [TB  ] 6594801ns - Resuming the CORE
+# [TB  ] 7168301ns - retrying debug reg access
+# [TB  ] 7197601ns - retrying debug reg access
+# [TB  ] 7226901ns - retrying debug reg access
+# [TB  ] 7256201ns - retrying debug reg access
+# [TB  ] 7285501ns - retrying debug reg access
+# [TB  ] 7314801ns - retrying debug reg access
+# [TB  ] 7344101ns - retrying debug reg access
+# [TB  ] 7373401ns - retrying debug reg access
+# [TB  ] 7402701ns - retrying debug reg access
+# [TB  ] 7432001ns - retrying debug reg access
+# [TB  ] 7461301ns - retrying debug reg access
+# [TB  ] 7490601ns - retrying debug reg access
+# [TB  ] 7519901ns - retrying debug reg access
+# [TB  ] 7563901ns - Waiting for end of computation
+# [STDOUT-CL31_PE0, 7602118ns] LAB3 empty=6 alu32=30 ldi32=92 ldd32=158 st32=93
+# [STDOUT-CL31_PE0, 7629926ns] LAB3 div 1000/7=142
+# [TB  ] 7737401ns - Received status core: 0x00000000
+# ** Note: $stop    : /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv(821)
+#    Time: 7737401 ns  Iteration: 0  Instance: /tb_pulp
+# Break in Module tb_pulp at /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv line 821
+# Stopped at /home/dungpc/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv line 821
+# End time: 16:05:45 on Sep 29,2026, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 16

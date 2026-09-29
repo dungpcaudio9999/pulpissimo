@@ -1,0 +1,46 @@
+
+8. Printing statistics.
+
+=== cv32e40p_core ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+    18466        - wires
+    23970        - wire bits
+      143        - public wires
+     5647        - public wire bits
+       39        - ports
+      536        - port bits
+    20594 2.87E+05 cells
+      431 5.47E+03   sg13g2_a21o_1
+     2034 1.85E+04   sg13g2_a21oi_1
+      358  5.2E+03   sg13g2_a221oi_1
+     2534 2.75E+04   sg13g2_a22oi_1
+      559 5.07E+03   sg13g2_and2_1
+       74  939.859   sg13g2_and3_1
+       61  885.427   sg13g2_and4_1
+     2071 1.01E+05   sg13g2_dfrbpq_1
+      614 3.34E+03   sg13g2_inv_1
+        1   27.216   sg13g2_lgcp_1
+      265  4808.16   sg13g2_mux2_1
+      133 5.07E+03   sg13g2_mux4_1
+     2313 1.68E+04   sg13g2_nand2_1
+      504 4.57E+03   sg13g2_nand2b_1
+      423 3.84E+03   sg13g2_nand3_1
+       24  304.819   sg13g2_nand3b_1
+      214  2329.69   sg13g2_nand4_1
+     1561 1.13E+04   sg13g2_nor2_1
+      538 4.88E+03   sg13g2_nor2b_1
+      370  3356.64   sg13g2_nor3_1
+      144 1.57E+03   sg13g2_nor4_1
+     3148 2.86E+04   sg13g2_o21ai_1
+      173 1.57E+03   sg13g2_or2_1
+       99 1.26E+03   sg13g2_or3_1
+       34  493.517   sg13g2_or4_1
+     1223 1.78E+04   sg13g2_xnor2_1
+      691    1E+04   sg13g2_xor2_1
+
+   Chip area for module '\cv32e40p_core': 286837.059600
+     of which used for sequential elements: 101455.804800 (35.37%)
+

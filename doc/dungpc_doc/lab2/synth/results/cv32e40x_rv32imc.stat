@@ -1,0 +1,48 @@
+
+7. Printing statistics.
+
+=== cv32e40x_synth_top ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+    18595        - wires
+    26244        - wire bits
+      156        - public wires
+     7805        - public wire bits
+       53        - ports
+     1602        - port bits
+    21101 3.05E+05 cells
+        1        -   $_DLATCH_N_
+      366 4.65E+03   sg13g2_a21o_1
+     1696 1.54E+04   sg13g2_a21oi_1
+      597 8.67E+03   sg13g2_a221oi_1
+     1208 1.31E+04   sg13g2_a22oi_1
+      538 4.88E+03   sg13g2_and2_1
+      106 1.35E+03   sg13g2_and3_1
+       92 1.34E+03   sg13g2_and4_1
+     2558 1.25E+05   sg13g2_dfrbpq_1
+      667 3.63E+03   sg13g2_inv_1
+      636 1.15E+04   sg13g2_mux2_1
+       23  876.355   sg13g2_mux4_1
+     3355 2.43E+04   sg13g2_nand2_1
+      498 4.52E+03   sg13g2_nand2b_1
+      669 6.07E+03   sg13g2_nand3_1
+       33  419.126   sg13g2_nand3b_1
+      276    3E+03   sg13g2_nand4_1
+     1493 1.08E+04   sg13g2_nor2_1
+      407 3.69E+03   sg13g2_nor2b_1
+      327 2.97E+03   sg13g2_nor3_1
+      179 1.95E+03   sg13g2_nor4_1
+     3595 3.26E+04   sg13g2_o21ai_1
+      240  2177.28   sg13g2_or2_1
+      113  1435.19   sg13g2_or3_1
+       20  290.304   sg13g2_or4_1
+      885 1.28E+04   sg13g2_xnor2_1
+      523  7591.45   sg13g2_xor2_1
+
+   Area for cell type $_DLATCH_N_ is unknown!
+
+   Chip area for module '\cv32e40x_synth_top': 305484.782400
+     of which used for sequential elements: 125313.350400 (41.02%)
+

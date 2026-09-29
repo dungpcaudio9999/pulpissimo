@@ -1,0 +1,204 @@
+Setting platform to rtl
+RM  ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build
+rm -rf ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build
+CC  test.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c test.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/fll-v1.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/fll-v1.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/fll-v1.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/fll-v1.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/freq-domains.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/freq-domains.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/freq-domains.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/freq-domains.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/chips/pulpissimo/soc.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/chips/pulpissimo/soc.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/chips/pulpissimo/soc.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/chips/pulpissimo/soc.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/gpio.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/gpio/gpio.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/gpio.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/gpio/gpio.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/src/io_mux.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/pulpissimo/rtl_sim/io_mux/src/io_mux.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/src/io_mux.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/pulpissimo/rtl_sim/io_mux/src/io_mux.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/io.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/io.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/io.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/io.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/fprintf.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/fprintf.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/fprintf.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/fprintf.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/prf.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/prf.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/prf.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/prf.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/sprintf.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/sprintf.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/sprintf.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/sprintf.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/init.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/init.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/init.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/init.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/kernel.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/kernel.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/kernel.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/kernel.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/alloc.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/alloc.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/alloc_pool.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc_pool.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/alloc_pool.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc_pool.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/irq.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/irq.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/soc_event.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/soc_event.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/soc_event.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/soc_event.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/bench.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/bench.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/bench.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/bench.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/uart.c
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/uart.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/uart.c -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/uart.o -MMD -MP -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/crt0.S
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/crt0.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/crt0.S -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/crt0.o -MMD -MP -DLANGUAGE_ASSEMBLY -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+CC  ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/irq_asm.S
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq_asm.o`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -c ~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel/irq_asm.S -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq_asm.o -MMD -MP -DLANGUAGE_ASSEMBLY -march=rv32imc -DRV_ISA_RV32 -O2 -g -D__cv32e40p__ -U__riscv__ -UARCHI_CORE_HAS_PULPV2 -fdata-sections -ffunction-sections -include chips/pulpissimo/config.h -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include/chips/pulpissimo -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/gpio/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/drivers/pulpissimo/rtl_sim/io_mux/include  -fno-jump-tables -fno-tree-loop-distribute-patterns -D__PLATFORM__=ARCHI_PLATFORM_RTL -DCONFIG_IO_UART=0 -DCONFIG_IO_UART_BAUDRATE=115200 -DCONFIG_IO_UART_ITF=0 -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/lib/libc/minimal/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/include -I~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel 
+LD  ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test
+mkdir -p `dirname ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test`
+/opt/pulp-toolchain/bin/riscv32-unknown-elf-gcc -o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/fll-v1.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/freq-domains.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/chips/pulpissimo/soc.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/gpio/gpio.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/pulpissimo/rtl_sim/io_mux/src/io_mux.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/io.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/fprintf.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/prf.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/lib/libc/minimal/sprintf.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/init.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/kernel.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/alloc_pool.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/soc_event.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/bench.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/drivers/uart.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/crt0.o ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/kernel/irq_asm.o -MMD -MP -march=rv32imc -nostartfiles -nostdlib -Wl,--gc-sections -L~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/kernel -Tchips/pulpissimo/link.ld -lgcc 
+ln -s ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/modelsim.ini ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/modelsim.ini
+ln -s ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/work ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/work
+ln -s ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/boot ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/boot
+ln -s ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/tcl_files ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/tcl_files
+mkdir -p ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/stdout
+mkdir -p ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/fs
+ln -s ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/waves ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/waves
+~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/stim_utils.py --binary=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test --vectors=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/vectors/stim.txt
+Created stimuli generator
+  Added binary: ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test
+  Handling section (base: 0x1c000004, size: 0x1c8)
+  Init section to 0 (base: 0x1c0001cc, size: 0x828)
+  Handling section (base: 0x1c008000, size: 0x12ac)
+  Generating to file: ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/vectors/stim.txt
+~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/plp_mkflash  --flash-boot-binary=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/test/test  --stimuli=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/vectors/qspi_stim.slm --flash-type=spi --qpi
+~/ndmoney4porche/projects/uni/pulpissimo/sw/pulp-runtime/bin/slm_hyper.py  --input=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/vectors/qspi_stim.slm  --output=~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build/vectors/hyper_stim.slm
+cd ~/ndmoney4porche/projects/uni/pulpissimo/doc/dungpc_doc/lab1/mem_alias_test/build && export VSIM_RUNNER_FLAGS='+ENTRY_POINT=0x1c008080 -permit_unmatched_virtual_intf -gBAUDRATE=115200 +bootmode=jtag' && vsim -64 -c -do 'source ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/tcl_files/config/run_and_exit.tcl' -do 'source ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/tcl_files/run.tcl; run_and_exit;'
+Reading pref.tcl
+
+# 10.7c
+
+# source ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/tcl_files/config/run_and_exit.tcl
+# source ~/ndmoney4porche/projects/uni/pulpissimo/build/questasim/tcl_files/run.tcl
+# vsim -c -quiet vopt_tb -t ps "+nowarnTRAN" "+nowarnTSCALE" "+nowarnTFMPC" -suppress 8386 "+UVM_NO_RELNOTES" "+ENTRY_POINT=0x1c008080" -permit_unmatched_virtual_intf "+bootmode=jtag" -gBAUDRATE=115200 
+# Start time: 12:55:28 on Sep 29,2026
+# //  Questa Sim-64
+# //  Version 10.7c linux_x86_64 Aug 17 2018
+# //
+# //  Copyright 1991-2018 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# ** Warning: (vsim-3770) Failed to find user specified function 'jtag_tick' in DPI precompiled library search list "~/questasim/uvm-1.1d/linux_x86_64/uvm_dpi.so ".
+#    Time: 0 ps  Iteration: 0  Region: /SimJTAG_sv_unit File: ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_lib/SimJTAG.sv
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_soc/i_FLL_digital/TQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_soc/i_FLL_digital/JTQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_per/i_FLL_digital/TQ has no driver.
+# This port will contribute value (U) to the signal network.
+# ** Warning: (vsim-8683) Uninitialized out port /tb_pulp/i_dut/i_clock_gen/i_fll_per/i_FLL_digital/JTQ has no driver.
+# This port will contribute value (U) to the signal network.
+#  run_and_exit
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(216) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# ** Warning: (vsim-7) Failed to open readmem file "/../rtl/vip/camera/img/frame0.img" in read mode.
+# No such file or directory. (errno = ENOENT)    : ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/vip/camera/cam_vip.sv(88)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pulp/genblk3/i_cam_vip
+# ** Warning: (vsim-7) Failed to open readmem file "/../rtl/vip/camera/img/frame1.img" in read mode.
+# No such file or directory. (errno = ENOENT)    : ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/vip/camera/cam_vip.sv(89)
+#    Time: 0 ps  Iteration: 0  Instance: /tb_pulp/genblk3/i_cam_vip
+# [cv32e40p_core]: PULP_XPULP = 1, PULP_CLUSTER =           0, FPU 1, PULP_ZFINX 0, NUM_MHPMCOUNTERS           1
+# [TB  ]       0ns - Asserting hard reset
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/load_store_unit_i/#ALWAYS#418 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_load_store_unit.sv Line: 419
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#784 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 785
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#774 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 775
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#768 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 769
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#759 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 760
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#753 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 754
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#614(immediate_a_mux) File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 615
+# ** Warning: (vsim-8315) No condition is true in the unique/priority if/case statement.
+#    Time: 0 ps  Iteration: 0  Process: /tb_pulp/i_dut/i_soc_domain/i_pulp_soc/fc_subsystem_i/FC_CORE/FC_CORE_i/core_i/id_stage_i/#ALWAYS#529 File: ~/ndmoney4porche/projects/uni/pulpissimo/.bender/git/checkouts/cv32e40p-703290f15a6e8974/rtl/cv32e40p_id_stage.sv Line: 530
+# [TB  ]       1ns - Using FLL
+# [TB  ]       1ns - Not using CAM SDVT
+# [TB  ]       1ns - Loading default stimuli
+# [TB  ]       1ns - Entry point is set to 0x1c008080
+# [JTAG]     701ns - Soft Reset Done
+# [JTAG]   33301ns - Bypass Test Passed
+# [JTAG]   43701ns - Tap ID: 50001db3
+# [JTAG]   43701ns - Tap ID Test PASSED
+# [TIF ]   50301ns - Init
+# [TB  ]   50301ns - Enabling clock out via jtag
+# [TB  ]   50301ns - jtag_conf_reg set to xxx
+# [TB  ]   50301ns - Releasing hard reset
+# [CORE_TRACER 992] Output filename is: trace_core_000003e0.log
+# [TB  ]   51901ns - Init PULP TAP
+# [PULP]   66001ns - WRITE32 burst @1c008080 for           4 bytes.
+# [TB  ]   66001ns - Write32 PULP TAP
+# [JTAG]  130501ns - R/W test of L2 succeeded
+# [TB  ]  176201ns - Halting the Core
+# [TB  ]  235001ns - Writing the boot address into dpc
+# [TB  ]  279101ns - Loading L2 via JTAG
+# [JTAG]  279101ns - Loading L2 with pulp tap jtag interface
+# [PULP] 1110801ns - WRITE32 burst @1c000000 for        1024 bytes.
+# [PULP] 1940901ns - WRITE32 burst @1c000400 for        1024 bytes.
+# [PULP] 2355001ns - WRITE32 burst @1c000800 for         504 bytes.
+# [PULP] 3185101ns - WRITE32 burst @1c008000 for        1024 bytes.
+# [PULP] 4015201ns - WRITE32 burst @1c008400 for        1024 bytes.
+# [PULP] 4845301ns - WRITE32 burst @1c008800 for        1024 bytes.
+# [PULP] 5675401ns - WRITE32 burst @1c008c00 for        1024 bytes.
+# [PULP] 6236701ns - WRITE32 burst @1c009000 for         688 bytes.
+# [TB  ] 6238301ns - Resuming the CORE
+# [TB  ] 6811801ns - retrying debug reg access
+# [TB  ] 6841101ns - retrying debug reg access
+# [TB  ] 6870401ns - retrying debug reg access
+# [TB  ] 6899701ns - retrying debug reg access
+# [TB  ] 6929001ns - retrying debug reg access
+# [TB  ] 6958301ns - retrying debug reg access
+# [TB  ] 6987601ns - retrying debug reg access
+# [TB  ] 7016901ns - retrying debug reg access
+# [TB  ] 7046201ns - retrying debug reg access
+# [TB  ] 7075501ns - retrying debug reg access
+# [TB  ] 7104801ns - retrying debug reg access
+# [TB  ] 7134101ns - retrying debug reg access
+# [TB  ] 7163401ns - retrying debug reg access
+# [TB  ] 7207401ns - Waiting for end of computation
+# [STDOUT-CL31_PE0, 7278280ns] L2  [1c030000]=cafe0001  alias [1c070000]=cafe0001
+# [STDOUT-CL31_PE0, 7341258ns] after write to alias: [1c030000]=12345678
+# [STDOUT-CL31_PE0, 7438318ns] ROM [1a000000]=0880006f  [1a002000]=0880006f  [1a03e000]=0880006f
+# [STDOUT-CL31_PE0, 7456527ns] aliasing observed
+# [TB  ] 7539701ns - Received status core: 0x00000000
+# ** Note: $stop    : ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv(821)
+#    Time: 7539701 ns  Iteration: 0  Instance: /tb_pulp
+# Break in Module tb_pulp at ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv line 821
+# Stopped at ~/ndmoney4porche/projects/uni/pulpissimo/target/sim/tb/tb_pulp.sv line 821
+# End time: 12:55:54 on Sep 29,2026, Elapsed time: 0:00:26
+# Errors: 0, Warnings: 15
